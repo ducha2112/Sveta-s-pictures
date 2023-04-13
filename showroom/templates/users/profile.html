@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+
+
+{% block main %}
+
+
+    <form method="post" enctype="multipart/form-data" class="form-section container mt-4">
+        <h1>Кабинет пользователя</h1>
+        <div class="d-flex text-muted pt-3">
+      <img class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="64" height="64" src="{{ user.profile.img.url }}">
+      <p class="pb-3 mb-0 small lh-sm border-bottom">
+        <strong class="d-block text-gray-dark ml-3">@{{ user.username }}</strong>
+        {% if user.email %}
+        <b class="ml-3">Email: </b> {{ user.email }}
+        {% endif %}
+      </p>
+    </div>
+        <hr>
+        <h2>Изменить данные пользователя {{ user.username }}</h2>
+
+    <!--  Обязательный параметр для передачи csrf_token-->
+        {% csrf_token %}
+         
+        {{ updateUserForm.as_p }}
+        {{ profileForm.as_p }}
+
+        <button class="btn btn-outline-success" type="submit">Обновить</button>
+
+        {% if user.is_superuser %}
+
+            <a href="{% url 'index' %}" class="btn btn-info mt-3">Администрирование сайта</a>
+            <a href="{% url 'add-picture' %}" class="btn btn-success mt-3">Добавить картину</a>
+        {% endif %}
+
+    </form>
+
+
+{% endblock %}
+
+
+

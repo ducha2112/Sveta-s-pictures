@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block main %}
+<div class="user">
+<!-- /.user -->
+
+  <form method="post" class="form-section container">
+  <!--  Обязательный параметр для передачи csrf_token-->
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-outline-warning" type="submit">Войти</button>
+    <hr>
+   <p>Забыли пароль?<a href="{% url 'pass-reset' %}">Получить новый</a></p>
+  </form>
+  </div>
+{% endblock %}
+

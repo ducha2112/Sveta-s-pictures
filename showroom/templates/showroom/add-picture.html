@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block main%}
+
+  <div class="container">
+    <h1>{{ title }}</h1>
+    <img src="{{ image }}" alt="">
+    <form class="form-section " method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-outline-success" type="submit">{{ btn_text }}</button>
+    </form>
+  </div>
+
+{% endblock %}

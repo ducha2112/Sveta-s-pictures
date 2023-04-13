@@ -1,0 +1,68 @@
+<html lang="ru">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="stylesheet" href="{% static 'css/fancybox.css'%}">
+    <link rel="shortcut icon" sizes="96x96" type="image/png" href="{% static '/favicon2.png' %}">
+</head>
+<body>
+<video id="background-video" autoplay loop muted poster="{% static '/krasivoe-mesto.jpg' %}">
+<source src="{% static 'video_2.mp4' %}" type="video/mp4">
+</video>
+
+
+
+<header class="container">
+    <span class="logo">Рисунки Светланы Моисеевой</span>
+    <nav class="main-menu">
+        <a href="{% url 'home' %}">Главная</a>
+        <a href="{% url 'picture_show' %}">Просмотр</a>
+
+        {% if user.is_authenticated %}
+        <a href="{% url 'kontakty' %}">Контакты</a>
+        <a href="{% url 'profile' %}">Профиль</a>
+        <a href="{% url 'exit' %}">Выйти</a>
+        {% else %}
+         <a href="{% url 'kontakty' %}">Контакты</a>
+        <a href="{% url 'reg' %}">Регистрация</a>
+        <a href="{% url 'user' %}">Войти</a>
+        {% endif %}
+    </nav>
+    <!-- /.logo -->
+</header>
+{% if messages %}
+      {% for mess in messages %}
+      <div class="alert alert-success text-center">{{ mess }}</div>
+      {% endfor %}
+      {% endif %}
+<!-- /.container -->
+{% block main %}
+{% endblock %}
+
+<footer>Светлана Моисеева @ Все права защищены</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
+
+const video =["{% static '/video.mp4' %}", "{% static '/video_2.mp4' %}","{% static '/video_3.mp4' %}", "{% static '/video_4.mp4' %}", "{% static '/video_5.mp4' %}"];
+
+let i = Math.round(Math.random()*5%6);
+console.log(i);
+const changeValue = ()=>{
+$('#background-video').attr('src', video[i]);
+        }
+changeValue();
+
+</script>
+
+<script src="{% static 'js/fancybox.js' %}"></script>
+</body>
+</html>

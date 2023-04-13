@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block main%}
+
+
+
+<div class="pictures container">
+    {% for el in pictures %}
+
+            <div class="picture">
+            <!-- /.image -->
+
+
+                {% if el.image %}
+                <img src="{{ el.image.url }}" alt="{{ el.title }}">
+
+                {% else %}
+                <img src="/pictures/default.png" alt="{{ el.title }}">
+                {% endif %}
+                 <h3>{{ el.title }}</h3>
+            <a href="{{ el.get_absolute_url }}">О рисунке</a>
+           </div>
+
+    <!-- /.course -->
+    {% endfor %}
+</div>
+
+{% endblock %}

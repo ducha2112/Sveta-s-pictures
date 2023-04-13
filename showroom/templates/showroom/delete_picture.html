@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+
+{% block main%}
+  <h5>Вы точно желаете удалить рисунок "{{ object.title }}"?</h5>
+<form method="post" class="form-section container mt-4">
+<!--  Обязательный параметр для передачи csrf_token-->
+  {% csrf_token %}
+  <button class="btn btn-outline-danger me-3" type="submit">Да, удалить</button>
+    <a class="btn btn-outline-success mt-3" href="{% url 'picture-detail' object.slug %}">Нет, отменить</a>
+</form>
+
+{% endblock %}

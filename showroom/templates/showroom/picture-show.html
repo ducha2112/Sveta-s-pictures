@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block main%}
+
+<div class="content">
+   <h6>{{ zag }}</h6>
+    {% for el in pictures %}
+
+                <a href="{{ el.image.url }}" data-fancybox="gallery" data-caption="{{ el.title }}">
+                    <img src="{{ el.image.url }}" alt="{{ el.title }}" width='100'/>
+                </a>
+
+    {% endfor %}
+</div>
+
+{% endblock %}
