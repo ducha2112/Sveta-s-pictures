@@ -3,9 +3,9 @@
 {% block main %}
 <div class="registration">
 <!-- /.registration -->
-  <h5>{{ title }}</h5>
+
   <form method="post" class="form-section container">
-  <!--  Обязательный параметр для передачи csrf_token-->
+  <h5>{{ title }}</h5>
     {% csrf_token %}
     {{ form.as_p }}
 

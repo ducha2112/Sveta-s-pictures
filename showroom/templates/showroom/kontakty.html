@@ -6,9 +6,10 @@
 <div class="contacts">
 <!-- /.contacts -->
 
-<h4>Напишите нам письмо</h4>
+
 
 <form method="post" class="form-section container mt-4">
+  <h5>Напишите нам письмо</h5>
   {% csrf_token %}
   {{ form.as_p }}
   <h6 class="date">Сегодня:  <b>{{ date }}</b> года</h6>

@@ -2,8 +2,9 @@
 
 
 {% block main%}
-  <h5>Вы точно желаете удалить рисунок "{{ object.title }}"?</h5>
+
 <form method="post" class="form-section container mt-4">
+  <h5>Вы точно желаете удалить рисунок "{{ object.title }}"?</h5>
 <!--  Обязательный параметр для передачи csrf_token-->
   {% csrf_token %}
   <button class="btn btn-outline-danger me-3" type="submit">Да, удалить</button>

@@ -2,7 +2,7 @@
 
 {% block main%}
 
-<div class="pictures container">
+<div class="images container">
 
     <div class="image">
 
@@ -16,7 +16,7 @@
     </div>
 
     <div class="aside">
-        <h3>О рисунке</h3>
+        <h4>О рисунке</h4>
          <div class="text">{{ object.desc }}</div>
         {% if user.is_superuser%}
         <a class="btn btn-danger" href="{% url 'picture-delete' object.slug %}">Удалить</a>

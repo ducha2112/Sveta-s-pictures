@@ -3,9 +3,10 @@
 {% block main%}
 
   <div class="container">
-    <h1>{{ title }}</h1>
+
     <img src="{{ image }}" alt="">
     <form class="form-section " method="post" enctype="multipart/form-data">
+       <h4>{{ title }}</h4>
       {% csrf_token %}
       {{ form.as_p }}
       <button class="btn btn-outline-success" type="submit">{{ btn_text }}</button>
